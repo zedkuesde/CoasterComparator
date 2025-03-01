@@ -19,7 +19,7 @@
   
   <script>
   import { ref, onMounted } from "vue";
-  import { getAuth, onAuthStateChanged } from "firebase/auth";
+  import { onAuthStateChanged } from "firebase/auth";
   import { getFirestore, doc, getDoc } from "firebase/firestore";
   import { auth } from "@/firebase"; 
   
@@ -44,7 +44,7 @@
               const fullCoasters = [];
               for (const coaster of topCoastersArray) {
                 if (coaster.id_CC && typeof coaster.id_CC === 'string') {
-                  const coasterDocRef = doc(db, "coaster", coaster.id_CC);
+                  const coasterDocRef = doc(db, "coasters", coaster.id_CC);
                   const coasterDocSnapshot = await getDoc(coasterDocRef);
   
                   if (coasterDocSnapshot.exists()) {
@@ -77,8 +77,10 @@
       onMounted(() => {
         onAuthStateChanged(auth, (currentUser) => {
           if (currentUser) {
+            console.log("Utilisateur connecté :", currentUser);
+
             user.value = currentUser;
-            userName.value = currentUser.displayName || 'Utilisateur';
+            userName.value = currentUser.name || 'Utilisateur';
             fetchTopCoasters();
           } else {
             user.value = null;
