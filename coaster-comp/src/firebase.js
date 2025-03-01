@@ -1,16 +1,17 @@
+// firebase.js
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth"; // Pour l'authentification
 import { getFirestore } from "firebase/firestore"; // Pour Firestore
 
 // Configuration de Firebase avec tes identifiants
 const firebaseConfig = {
-  apiKey: "AIzaSyBahfHzndeLfXgRdxWBveTrNvYX71pVTFI",
-  authDomain: "coastercomparator.firebaseapp.com",
-  projectId: "coastercomparator",
-  storageBucket: "coastercomparator.appspot.com",  // Correction du nom du bucket
-  messagingSenderId: "422661642595",
-  appId: "1:422661642595:web:133f95e5fe236c45a5db56",
-  measurementId: "G-T7K75WR9SQ"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
+  measurementId: "YOUR_MEASUREMENT_ID",
 };
 
 // Initialisation de Firebase avec ta config
